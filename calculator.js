@@ -16,11 +16,31 @@ document.addEventListener('click', function (event) {
         calculator.temp += val;
         screen.value = calculator.temp.substring(0, 10);
     } else if (val === '÷') {
-        val = '/'
+        operator('÷');
+    } else if (val === 'x'){
+        calculator.entires.push(calculator.temp);
+        calculator.temp = '';
+        val = '*';
+        calculator.entires.push(val);
+        screen.value = '';
     }
 
 });
 
+//Function to handle operators
+function operator(op) {
+    calculator.entires.push(calculator.temp);
+    calculator.temp = '';
+    if (op === '÷') {
+        val = '/';
+    } else if (op === 'x'){
+        val = '*';
+    } else {
+        val = op;
+    }
+    calculator.entires.push(val);
+    screen.value = '';
+}
 
 //If the key is AC, reset all values from calculator back to origional
 
