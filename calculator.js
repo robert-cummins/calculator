@@ -72,10 +72,7 @@ function evaluate(arr) {
             }
         }
     }
-    calculator.entires = [];
-    calculator.entires.push(calculator.total);
-    calculator.temp = calculator.total;
-    screen.value = calculator.total;
+    afterCalc();
 }
 
 //Function to handle cancle button
@@ -84,4 +81,12 @@ function cancle() {
     calculator.total = 0;
     calculator.temp = '';
     screen.value = '';
+}
+
+//Function to handle what happens after the total is calculated
+function afterCalc() {
+    calculator.entires = [];
+    calculator.entires.push(calculator.total);
+    calculator.temp = calculator.total;
+    screen.value = calculator.total;
 }
