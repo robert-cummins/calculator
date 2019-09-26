@@ -6,7 +6,6 @@ let calculator = {
 }
 
 let click = new Audio('click.wav');
-
 let screen = document.querySelector('.display');
 
 //Create an event listener to check for what key is pressed
@@ -81,3 +80,5 @@ function evaluate(arr) {
     calculator.temp = calculator.total;
     screen.value = calculator.total;
 }
+
+f
