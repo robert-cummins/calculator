@@ -5,12 +5,16 @@ let calculator = {
     temp: ''
 }
 
+let click = new Audio('click.wav');
+
 let screen = document.querySelector('.display');
 
 //Create an event listener to check for what key is pressed
 document.addEventListener('click', function (event) {
     let val = event.target.value;
-
+    if (event.target.type === 'button') {
+        click.play();
+    }
     //If the key is a number or decimal point, add to temp and display to screen. Limit to 10 didgets.
     if (!(isNaN(val)) || val === '.') {
         calculator.temp += val;
@@ -54,7 +58,7 @@ function operator(op) {
 
 
 //Write a function that evaluates the entires array
-//loop through the array. Convert string to number. Check what symbol and apply to next number. New varibales may be needed for this.
+//loop through the array. Convert string to number. 
 function evaluate(arr) {
     calculator.entires.push(calculator.temp);
     calculator.total = parseInt(arr[0]);
@@ -72,10 +76,8 @@ function evaluate(arr) {
             }
         }
     }
-    //console.log(calculator.total)
     calculator.entires = [];
     calculator.entires.push(calculator.total);
     calculator.temp = calculator.total;
-    //console.log(calculator.entires);
     screen.value = calculator.total;
 }
