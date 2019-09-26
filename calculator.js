@@ -29,10 +29,7 @@ document.addEventListener('click', function (event) {
         operator('-');
         //Handle Cancle button    
     } else if (val === 'C') {
-        calculator.entires = [];
-        calculator.total = 0;
-        calculator.temp = '';
-        screen.value = '';
+        cancle();
     //Handle evaluate button    
     } else if (val === '=') {
         evaluate(calculator.entires);
@@ -81,4 +78,10 @@ function evaluate(arr) {
     screen.value = calculator.total;
 }
 
-f
+//Function to handle cancle button
+function cancle() {
+    calculator.entires = [];
+    calculator.total = 0;
+    calculator.temp = '';
+    screen.value = '';
+}
